@@ -9,5 +9,6 @@ function blankslate_child_enqueue_styles() {
         array('blankslate-parent-style'),
         filemtime(get_stylesheet_directory() . '/style.css')
     );
+    
 }
 add_action('wp_enqueue_scripts', 'blankslate_child_enqueue_styles');

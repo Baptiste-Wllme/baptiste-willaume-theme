@@ -9,9 +9,15 @@ Template: blankslate
   font-style: normal;
 }
 @font-face {
-  font-family: "SpaceGrotesk";
+  font-family: "SpaceGrotesk-Bold";
   src: url("assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
   font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SpaceGrotesk-Light";
+  src: url("assets/fonts/SpaceGrotesk-Light.ttf") format("truetype");
+  font-weight: 200;
   font-style: normal;
 }
 body {
@@ -27,7 +33,7 @@ body {
   align-items: center;
   height: 100vh;
   text-align: center;
-  background-color: #ffffff;
+  background-color: rgb(237, 237, 237);
   color: rgb(66, 55, 134);
 }
 .hero_space {
@@ -36,11 +42,12 @@ body {
 .hero_title {
   text-transform: uppercase;
   font-weight: 700;
-  font-family: "SpaceGrotesk";
+  font-family: "SpaceGrotesk-Bold";
   font-size: 70px;
   margin: 0;
 }
 .hero_subtitle {
+  font-family: "SpaceGrotesk-Light", sans-serif;
   font-weight: 300;
   font-size: 45px;
   margin: 0;
@@ -74,6 +81,97 @@ body {
 }
 .hero_scroll .text, .hero_scroll a img {
   transition: transform 0.5s ease;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: rgb(66, 55, 134);
+  color: rgb(237, 237, 237);
+}
+.description_content {
+  width: 40%;
+}
+.description_bloc1 {
+  font-family: "SpaceGrotesk-Light", sans-serif;
+  font-weight: 200;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-align: left;
+}
+.description_under {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+}
+.description_bloc2 {
+  font-weight: 400;
+  font-size: 30px;
+  text-align: left;
+}
+.description_bloc3 {
+  font-family: "SpaceGrotesk-Light", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  text-align: left;
+  max-width: 50%;
+}
+.description_bloc4 {
+  font-family: "SpaceGrotesk-Light", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  text-align: left;
+}
+
+.cv {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgb(237, 237, 237);
+  color: rgb(66, 55, 134);
+}
+.cv_content {
+  margin-top: 5%;
+  left: 10%;
+  position: relative;
+  width: 90%;
+}
+.cv_title {
+  font-family: "SpaceGrotesk-Light", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  text-align: left;
+  text-transform: uppercase;
+  width: 50%;
+}
+.cv_timeline {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 2rem;
+  cursor: grab;
+  width: 95%;
+  height: 100%;
+}
+.cv_item {
+  flex: 0 0 300px;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cv_item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /*# sourceMappingURL=style.css.map */
