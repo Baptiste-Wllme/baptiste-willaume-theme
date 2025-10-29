@@ -58,49 +58,64 @@
             <h2>Mon parcours professionel jusqu'à aujourd'hui</h2>
         </div>
         <div class="cv_timeline">
+            <div class="motaphoto">
+                <div class="cv_item top">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/motaphoto_Logo.png"  class="cv_logo" alt="logo motaphoto">
+                    <h3 class="cv_item-title">Création d'un site WordPress complexe pour une photographe freelance</h3>
+                    <p class="cv_item-desc">Création complète d’un site responsive sur mesure</p>
+                </div>
+                <div class="motaphoto_photos">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/motaphoto_01.png" alt="photo 1">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/motaphoto_02.png" alt="photo 2">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/motaphoto_03.png" alt="photo 3">
+                </div>
+                <div class="motaphoto_date">
+                    <p>Août 2025</p>
+                </div>
+                <div class="motaphoto_discover">
+                    <a href="https://motaphoto.baptiste-willaume.fr/" target="_blank" rel="noopener noreferrer"><p>Découvrir le projet Motaphoto</p></a>
+                </div>
+                
+            </div>
+        
+            <div class="cv_item bottom">
+                <h3 class="cv_item-title">Projet 2 : Site vitrine Koukaki</h3>
+                <p class="cv_item-desc">Animations CSS et JS, menu burger, effet parallaxe, swiperJS...</p>
+            </div>
+
             <div class="cv_item">
-              <h3 class="cv_item-title">Projet 1 : Optimisation WordPress</h3>
-              <p class="cv_item-desc">Amélioration des performances, mise en cache, minification, hébergement local des polices...</p>
+                <h3 class="cv_item-title">Projet 3 : Portfolio personnel</h3>
+                <p class="cv_item-desc">Création complète d’un site responsive avec thème enfant WordPress.</p>
+            </div>
+
+            <div class="cv_item">
+                <h3 class="cv_item-title">Projet 1 : Optimisation WordPress</h3>
+                <p class="cv_item-desc">Amélioration des performances, mise en cache, minification, hébergement local des polices...</p>
             </div>
         
             <div class="cv_item">
-              <h3 class="cv_item-title">Projet 2 : Site vitrine Koukaki</h3>
-              <p class="cv_item-desc">Animations CSS et JS, menu burger, effet parallaxe, swiperJS...</p>
+                <h3 class="cv_item-title">Projet 2 : Site vitrine Koukaki</h3>
+                <p class="cv_item-desc">Animations CSS et JS, menu burger, effet parallaxe, swiperJS...</p>
             </div>
 
             <div class="cv_item">
-              <h3 class="cv_item-title">Projet 3 : Portfolio personnel</h3>
-              <p class="cv_item-desc">Création complète d’un site responsive avec thème enfant WordPress.</p>
+                <h3 class="cv_item-title">Projet 3 : Portfolio personnel</h3>
+                <p class="cv_item-desc">Création complète d’un site responsive avec thème enfant WordPress.</p>
             </div>
 
             <div class="cv_item">
-              <h3 class="cv_item-title">Projet 1 : Optimisation WordPress</h3>
-              <p class="cv_item-desc">Amélioration des performances, mise en cache, minification, hébergement local des polices...</p>
+                <h3 class="cv_item-title">Projet 1 : Optimisation WordPress</h3>
+                <p class="cv_item-desc">Amélioration des performances, mise en cache, minification, hébergement local des polices...</p>
             </div>
         
             <div class="cv_item">
-              <h3 class="cv_item-title">Projet 2 : Site vitrine Koukaki</h3>
-              <p class="cv_item-desc">Animations CSS et JS, menu burger, effet parallaxe, swiperJS...</p>
+                <h3 class="cv_item-title">Projet 2 : Site vitrine Koukaki</h3>
+                <p class="cv_item-desc">Animations CSS et JS, menu burger, effet parallaxe, swiperJS...</p>
             </div>
 
             <div class="cv_item">
-              <h3 class="cv_item-title">Projet 3 : Portfolio personnel</h3>
-              <p class="cv_item-desc">Création complète d’un site responsive avec thème enfant WordPress.</p>
-            </div>
-
-            <div class="cv_item">
-              <h3 class="cv_item-title">Projet 1 : Optimisation WordPress</h3>
-              <p class="cv_item-desc">Amélioration des performances, mise en cache, minification, hébergement local des polices...</p>
-            </div>
-        
-            <div class="cv_item">
-              <h3 class="cv_item-title">Projet 2 : Site vitrine Koukaki</h3>
-              <p class="cv_item-desc">Animations CSS et JS, menu burger, effet parallaxe, swiperJS...</p>
-            </div>
-
-            <div class="cv_item">
-              <h3 class="cv_item-title">Projet 3 : Portfolio personnel</h3>
-              <p class="cv_item-desc">Création complète d’un site responsive avec thème enfant WordPress.</p>
+                <h3 class="cv_item-title">Projet 3 : Portfolio personnel</h3>
+                <p class="cv_item-desc">Création complète d’un site responsive avec thème enfant WordPress.</p>
             </div>
         </div>
         
