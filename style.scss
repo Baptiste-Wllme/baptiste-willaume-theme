@@ -24,21 +24,35 @@ Template: blankslate
   font-style: normal;
 }
 
-
+html {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
 
 body {
   background: rgb(255, 255, 255) ;
   font-family: 'SpaceGrotesk', sans-serif;
   margin: 0;
+  scroll-snap-type: y mandatory;
 }
 
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory; 
+  scroll-behavior: smooth;
+}
+
+section {
+  height: 100vh; 
+  scroll-snap-align: start; 
+}
 
 .hero {
   display: flex;                
   flex-direction: column;       
   justify-content: center;      
-  align-items: center;          
-  height: 100vh;                
+  align-items: center;                          
   text-align: center;           
   background-color: rgba(237, 237, 237, 1);  
   color: rgba(66, 55, 134, 1);
@@ -107,8 +121,7 @@ body {
   display: flex;                
   flex-direction: column;       
   justify-content: center;      
-  align-items: center;          
-  height: 100vh;                
+  align-items: center;                         
   text-align: center;           
   background-color: rgba(66, 55, 134, 1);  
   color: rgba(237, 237, 237, 1);
@@ -154,17 +167,16 @@ body {
 }
 
 .cv {
-  display: flex;                
-  flex-direction: column;                   
-  height: 100vh;                        
-  background-color: rgba(237, 237, 237, 1);  
+  box-sizing: border-box;
   color: rgba(66, 55, 134, 1);
+  padding-top: 2rem;
+  background-color: rgb(237, 237, 237);
 
   &_content {
     margin-top: 5%;
-    left: 10%;
-    position: relative;
-    width: 90%;
+    width: 100%;
+    padding-left: 10%; 
+    box-sizing: border-box;
   }
 
   &_title {
@@ -173,7 +185,8 @@ body {
     font-size: 30px;
     text-align: left;
     text-transform: uppercase;
-    width: 50%;
+    max-width: 90%;
+    margin: 0; 
   }
 
   &_timeline {
@@ -183,10 +196,11 @@ body {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 2rem;
+    padding: 2rem 2rem;
     cursor: grab;
-    width: 95%;
-    height: 100%;
+    width: 100%;
+    height: 70vh;
+    box-sizing: border-box;
   }
   
   &_item {
@@ -195,7 +209,6 @@ body {
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    scroll-snap-align: start;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {

@@ -25,13 +25,13 @@
     </div>
     <div class="hero_scroll">
         <p class="text">scroll</p>
-        <a href="#">
+        <a href="#description">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/flèche_01.svg" alt="arrow scroll">
         </a>
     </div>
 </section>
 
-<section class="description">
+<section id="description" class="description">
     <div class="description_content">
         <div class="description_bloc1">
             <h2>Je suis Baptiste, un jeune développeur WordPress  </h2>
