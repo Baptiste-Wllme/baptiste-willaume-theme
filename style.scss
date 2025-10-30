@@ -169,12 +169,12 @@ section {
 .cv {
   box-sizing: border-box;
   color: rgba(66, 55, 134, 1);
-  padding-top: 2rem;
   background-color: rgb(237, 237, 237);
+  padding-top: 2rem;
 
   &_content {
     width: 100%;
-    padding-left: 10%; 
+    padding-left: 10%;
     box-sizing: border-box;
   }
 
@@ -182,10 +182,10 @@ section {
     font-family: 'SpaceGrotesk-Light', sans-serif;
     font-weight: 300;
     font-size: 30px;
-    text-align: left;
     text-transform: uppercase;
+    text-align: left;
     max-width: 90%;
-    margin: 0; 
+    margin: 0;
   }
 
   &_timeline {
@@ -193,80 +193,30 @@ section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 3rem;
+    gap: 10rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 2rem 2rem;
+    padding: 2rem;
     cursor: grab;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     box-sizing: border-box;
 
     &::before {
       content: "";
       position: absolute;
       top: 50%;
-      left: 0;
-      width: 100%;
+      left: 2rem;   
+      right: -15rem;
       height: 4px;
       background-color: rgba(66, 55, 134, 1);
       z-index: 0;
     }
   }
+
   
-  &_item { 
-    background-color: white;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    scroll-snap-align: center;
-    position: relative;
-    height: fit-content;
-    width: fit-content;
-    min-width: 300px;
-
-    &.top {
-      align-self: flex-start;
-      transform: translateY(-45%);
-    }
-
-    &.bottom {
-      align-self: flex-end;
-    }
-
-    
-
-    
-  }
-}
-
-.motaphoto {
-  height: fit-content;
-  width: fit-content;
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-
-  .cv_logo {
-    width: 80%;
-    padding: 20px 0 10px 0;
-  }
-
-  &_photos {
-    display: none;
-    flex-direction: row;
-    gap: 2%;
-
-    img {
-      max-width: 200px;
-      object-fit: cover;
-    }
-  }
-
-  &_date {
+  @mixin button-style {
     height: fit-content;
     width: fit-content;
     background-color: rgba(66, 55, 134, 1);
@@ -275,25 +225,6 @@ section {
     border-radius: 1rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    top: -124px;
-    position: relative;
-    align-self: center;
-
-    p {
-      margin: 0;
-    }
-  }
-
-  &_discover {
-    height: fit-content;
-    width: fit-content;
-    background-color: rgba(66, 55, 134, 1);
-    color: white;
-    padding: 5px;
-    border-radius: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    top: -125px;
     position: relative;
     align-self: center;
 
@@ -312,4 +243,59 @@ section {
     }
   }
 
+  @mixin project-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+
+    .cv_logo {
+      width: 80%;
+      padding: 20px 0 10px 0;
+      display: flex;
+      justify-self: center;
+    }
+
+    &_photos {
+      display: none;
+      flex-direction: row;
+      gap: 2%;
+
+      img {
+        max-width: 200px;
+        object-fit: cover;
+      }
+    }
+
+    &_date {
+      @include button-style;
+    }
+
+    &_discover {
+      @include button-style;
+    }
+  }
+
+  .cv_item {
+    @include project-block;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    scroll-snap-align: center;
+    position: relative;
+    min-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &.top {
+      transform: translateY(30%);
+      align-self: flex-start;
+    }
+
+    &.bottom {
+      transform: translateY(-15%);
+      align-self: flex-end;
+    }
+  }
 }
+

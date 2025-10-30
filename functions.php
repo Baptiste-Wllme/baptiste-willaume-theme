@@ -14,3 +14,13 @@ function blankslate_child_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'blankslate_child_enqueue_styles');
 
+function create_projets_cpt() {
+    register_post_type('projets', [
+        'label' => 'Projets',
+        'public' => true,
+        'supports' => ['title', 'editor', 'thumbnail'],
+        'menu_icon' => 'dashicons-portfolio',
+    ]);
+}
+add_action('init', 'create_projets_cpt');
+
