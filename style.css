@@ -182,8 +182,8 @@ section {
   content: "";
   position: absolute;
   top: 50%;
-  left: 2rem;
-  right: -15rem;
+  left: 0rem;
+  right: -355rem;
   height: 4px;
   background-color: rgb(66, 55, 134);
   z-index: 0;
@@ -191,7 +191,7 @@ section {
 .cv .cv_item {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
   max-width: 500px;
   background: white;
   border-radius: 1rem;
@@ -203,19 +203,20 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cv .cv_item .cv_logo {
-  width: 80%;
-  padding: 20px 0 10px 0;
+  width: auto;
+  max-width: 200px;
+  max-height: 100px;
+  padding: 0px 0 10px 0;
   display: flex;
   justify-self: center;
+  align-items: center;
 }
-.cv .cv_item_photos {
-  display: none;
-  flex-direction: row;
-  gap: 2%;
-}
-.cv .cv_item_photos img {
-  max-width: 200px;
-  object-fit: cover;
+.cv .cv_item .cv_logo img {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
 }
 .cv .cv_item_date {
   height: fit-content;
@@ -263,13 +264,44 @@ section {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+.cv .cv_item h3, .cv .cv_item p {
+  margin: 10px 0;
+}
 .cv .cv_item.top {
-  transform: translateY(30%);
-  align-self: flex-start;
+  align-self: center;
+  transform: translateY(calc(-50% - 2rem));
 }
 .cv .cv_item.bottom {
-  transform: translateY(-15%);
-  align-self: flex-end;
+  align-self: center;
+  transform: translateY(calc(50% + 2rem));
+}
+.cv .cv_date {
+  position: absolute;
+  background-color: rgb(66, 55, 134);
+  top: 50%;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  z-index: 2;
+}
+.cv .cv_item-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cv .cv_item-wrapper.top .cv_date {
+  transform: translate(0%, calc(-50% - 0px));
+}
+.cv .cv_item-wrapper.top .cv_date p {
+  margin: 0;
+}
+.cv .cv_item-wrapper.bottom .cv_date {
+  transform: translate(0%, calc(-50% - 0px));
+}
+.cv .cv_item-wrapper.bottom .cv_date p {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
