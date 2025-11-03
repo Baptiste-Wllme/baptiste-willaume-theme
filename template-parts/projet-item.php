@@ -3,6 +3,7 @@ $class_position = isset($args['class_position']) ? $args['class_position'] : '';
 $lien_projet   = get_post_meta(get_the_ID(), 'lien_projet', true);
 $date_projet   = get_post_meta(get_the_ID(), 'date_projet', true);
 $excerpt       = get_the_excerpt();
+$details_projet = get_field('details_projet');
 ?>
 
 <div class="cv_item-wrapper <?php echo esc_attr($class_position); ?>">
@@ -26,12 +27,19 @@ $excerpt       = get_the_excerpt();
             <p class="cv_item-desc"><?php echo esc_html($excerpt); ?></p>
         <?php endif; ?>
 
-        <?php if ($lien_projet) : ?>
-            <div class="cv_discover">
-                <a href="<?php echo esc_url($lien_projet); ?>" target="_blank" rel="noopener noreferrer">
-                    <p>Découvrir le projet</p>
-                </a>
-            </div>
-        <?php endif; ?>
+        <button class="cv_toggle">Voir plus</button>
     </div>
+
+    <?php if ($details_projet) : ?>
+        <div class="cv_more">
+            <p><?php echo wp_kses_post($details_projet); ?></p>
+            <?php if ($lien_projet) : ?>
+                <div class="cv_discover">
+                    <a href="<?php echo esc_url($lien_projet); ?>" target="_blank" rel="noopener noreferrer">
+                        <p>Découvrir le projet</p>
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
 </div>

@@ -199,17 +199,19 @@ section {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   scroll-snap-align: center;
   position: relative;
+  z-index: 2;
   min-width: 300px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cv .cv_item .cv_logo {
-  width: auto;
+  width: 100%;
   max-width: 200px;
   max-height: 100px;
   padding: 0px 0 10px 0;
   display: flex;
   justify-self: center;
   align-items: center;
+  margin: 0 auto 10px auto;
 }
 .cv .cv_item .cv_logo img {
   max-width: 100%;
@@ -217,6 +219,7 @@ section {
   height: auto;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 .cv .cv_item_date {
   height: fit-content;
@@ -283,13 +286,14 @@ section {
   padding: 6px 12px;
   border-radius: 1rem;
   font-size: 0.9rem;
-  z-index: 2;
+  z-index: 0;
 }
 .cv .cv_item-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
 }
 .cv .cv_item-wrapper.top .cv_date {
   transform: translate(0%, calc(-50% - 0px));
@@ -302,6 +306,55 @@ section {
 }
 .cv .cv_item-wrapper.bottom .cv_date p {
   margin: 0;
+}
+.cv .cv_item-wrapper .cv_more {
+  position: absolute;
+  left: 50%;
+  width: 82.5%;
+  background: white;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, transform 0.5s ease;
+  z-index: 1;
+}
+.cv .cv_item-wrapper .cv_more p {
+  z-index: 0;
+  position: relative;
+}
+.cv .cv_item-wrapper.top .cv_more {
+  top: 45%;
+  border-radius: 0 0 1rem 1rem;
+  transform: translateX(-50%) translateY(-130%);
+}
+.cv .cv_item-wrapper.top.open .cv_more {
+  max-height: 800px;
+  transform: translateX(-50%) translateY(-10%);
+}
+.cv .cv_item-wrapper.bottom .cv_more {
+  bottom: 40%;
+  border-radius: 1rem 1rem 0 0;
+  transform: translateX(-50%) translateY(100%);
+}
+.cv .cv_item-wrapper.bottom.open .cv_more {
+  max-height: 800px;
+  transform: translateX(-50%) translateY(10%);
+}
+.cv .cv_item-wrapper .cv_toggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  background: rgb(66, 55, 134);
+  color: white;
+  transition: 0.3s;
+  z-index: 3;
+  position: relative;
+}
+.cv .cv_item-wrapper .cv_toggle:hover {
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style.css.map */

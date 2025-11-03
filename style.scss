@@ -250,27 +250,24 @@ section {
     max-width: 500px;
 
     .cv_logo {
-      width: auto;
+      width: 100%;
       max-width: 200px;
       max-height: 100px;
       padding: 0px 0 10px 0;
       display: flex;
       justify-self: center;
       align-items: center;
-
+      margin: 0 auto 10px auto;
+      
       img {
         max-width: 100%;
         max-height: 100%;
         height: auto;
         width: auto;
         object-fit: contain;
+        display: block;
       }
     }
-
-   
-
-      
-    
 
     &_date {
       @include button-style;
@@ -289,6 +286,7 @@ section {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     scroll-snap-align: center;
     position: relative;
+    z-index: 2;
     min-width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -315,7 +313,7 @@ section {
     padding: 6px 12px;
     border-radius: 1rem;
     font-size: 0.9rem;
-    z-index: 2; 
+    z-index: 0; 
   }
 
   .cv_item-wrapper {
@@ -323,6 +321,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 
     &.top .cv_date {
       transform: translate(0%, calc(-50% - 0px));
@@ -339,6 +338,66 @@ section {
         margin:0;
       }
     }
+
+    .cv_more {
+      position: absolute;
+      left: 50%;
+      width: 82.5%;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, transform 0.5s ease;
+      z-index: 1;
+
+      p {
+        z-index: 0;
+        position: relative;
+      }
+    }
+
+    &.top .cv_more {
+      top: 45%; 
+      border-radius: 0 0 1rem 1rem;
+      transform: translateX(-50%) translateY(-130%);
+    }
+
+    &.top.open .cv_more {
+      max-height: 800px;
+      transform: translateX(-50%) translateY(-10%); 
+    }
+
+    &.bottom .cv_more {
+      bottom: 40%; 
+      border-radius:1rem 1rem 0 0;
+      transform: translateX(-50%) translateY(100%);
+    }
+
+    &.bottom.open .cv_more {
+      max-height: 800px;
+      transform: translateX(-50%) translateY(10%);
+    }
+
+
+    .cv_toggle {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      background: rgba(66, 55, 134, 1);
+      color: white;
+      transition: 0.3s;
+      z-index: 3;
+      position: relative;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    
   }
 }
 
