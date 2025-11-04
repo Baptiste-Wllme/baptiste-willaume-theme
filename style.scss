@@ -193,22 +193,26 @@ section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10rem;
+    gap: 3rem;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding: 2rem;
     cursor: grab;
+    user-select: none;
     width: 100%;
     height: 90vh;
     box-sizing: border-box;
+
+    &.grabbing {
+      cursor: grabbing;    
+    }
 
     &::before {
       content: "";
       position: absolute;
       top: 50%;
-      left: 0rem;   
-      right: -355rem;
+      left: var(--line-left, 0px);        
+      width: var(--line-width, 100%);
       height: 4px;
       background-color: rgba(66, 55, 134, 1);
       z-index: 0;
@@ -283,7 +287,7 @@ section {
     background: white;
     border-radius: 1rem;
     padding: 2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.1);
     scroll-snap-align: center;
     position: relative;
     z-index: 2;
@@ -322,6 +326,12 @@ section {
     flex-direction: column;
     align-items: center;
     z-index: 1;
+    overflow: visible;
+    transition: all 0.4s ease;
+
+    &.animating {
+      overflow: hidden; // ✅ empêche de voir le contenu pendant le mouvement
+    }
 
     &.top .cv_date {
       transform: translate(0%, calc(-50% - 0px));
@@ -346,9 +356,10 @@ section {
       background: white;
       padding: 2rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, transform 0.5s ease;
+      cursor: default;
+      transform: translate(-50%, 0) scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s ease, opacity 0.2s ease;
       z-index: 1;
 
       p {
@@ -358,32 +369,27 @@ section {
     }
 
     &.top .cv_more {
-      top: 45%; 
-      border-radius: 0 0 1rem 1rem;
-      transform: translateX(-50%) translateY(-130%);
-    }
-
-    &.top.open .cv_more {
-      max-height: 800px;
-      transform: translateX(-50%) translateY(-10%); 
+      top: 35%;
+    transform-origin: top;
+    border-radius: 0 0 1rem 1rem;
     }
 
     &.bottom .cv_more {
-      bottom: 40%; 
-      border-radius:1rem 1rem 0 0;
-      transform: translateX(-50%) translateY(100%);
+      bottom: 35%;
+    transform-origin: bottom;
+    border-radius:1rem 1rem 0 0 ;
     }
 
-    &.bottom.open .cv_more {
-      max-height: 800px;
-      transform: translateX(-50%) translateY(10%);
-    }
+    &.open .cv_more {
+    opacity: 1;
+    transform: translate(-50%, 0) scaleY(1);
+  }
 
 
     .cv_toggle {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
-      border: none;
+      border: 1px solid transparent;
       border-radius: 1rem;
       cursor: pointer;
       background: rgba(66, 55, 134, 1);
@@ -391,9 +397,13 @@ section {
       transition: 0.3s;
       z-index: 3;
       position: relative;
+      align-self: center;
+      width: fit-content;
 
       &:hover {
-        opacity: 0.8;
+        background-color: rgba(237, 237, 237, 1);
+        color: rgba(66, 55, 134, 1);
+        border-color:rgba(66, 55, 134, 1);
       }
     }
 

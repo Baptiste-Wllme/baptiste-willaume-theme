@@ -27,7 +27,9 @@ $details_projet = get_field('details_projet');
             <p class="cv_item-desc"><?php echo esc_html($excerpt); ?></p>
         <?php endif; ?>
 
-        <button class="cv_toggle">Voir plus</button>
+        <button class="cv_toggle">
+            <?php echo ($class_position === 'bottom') ? '▲' : '▼'; ?>
+        </button>
     </div>
 
     <?php if ($details_projet) : ?>
