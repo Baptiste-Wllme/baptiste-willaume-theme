@@ -72,31 +72,61 @@ document.querySelectorAll('.cv_toggle').forEach(button => {
   if (!timeline) return;
 
   let isDown = false;
-  let startX;
-  let scrollLeft;
+  let startX = 0;
+  let scrollLeft = 0;
 
-  timeline.addEventListener('mousedown', (e) => {
+
+  const prevScrollBehavior = timeline.style.scrollBehavior || '';
+  const prevScrollSnap = getComputedStyle(timeline).scrollSnapType || '';
+
+  function onPointerDown(e) {
     isDown = true;
     timeline.classList.add('grabbing');
-    startX = e.pageX - timeline.offsetLeft;
+
+
+    document.body.style.userSelect = 'none';
+
+  
+    timeline.style.scrollBehavior = 'auto';
+    timeline.style.scrollSnapType = 'none';
+
+
+    startX = e.pageX;
     scrollLeft = timeline.scrollLeft;
-  });
 
-  timeline.addEventListener('mouseleave', () => {
-    isDown = false;
-    timeline.classList.remove('grabbing');
-  });
+ 
+    document.addEventListener('pointermove', onPointerMove, { passive: false });
+    document.addEventListener('pointerup', onPointerUp, { passive: false });
 
-  timeline.addEventListener('mouseup', () => {
-    isDown = false;
-    timeline.classList.remove('grabbing');
-  });
+  
+    e.preventDefault();
+  }
 
-  timeline.addEventListener('mousemove', (e) => {
+  function onPointerMove(e) {
     if (!isDown) return;
-    e.preventDefault(); // évite la sélection de texte / image
-    const x = e.pageX - timeline.offsetLeft;
-    const walk = (x - startX) * 1.5; // multiplier pour aller plus ou moins vite
+
+    e.preventDefault();
+
+    const x = e.pageX;
+    const walk = x - startX; 
     timeline.scrollLeft = scrollLeft - walk;
-  });
+  }
+
+  function onPointerUp() {
+    if (!isDown) return;
+    isDown = false;
+    timeline.classList.remove('grabbing');
+
+  
+    timeline.style.scrollBehavior = prevScrollBehavior || 'smooth';
+    timeline.style.scrollSnapType = prevScrollSnap || 'x mandatory';
+    document.body.style.userSelect = '';
+
+    document.removeEventListener('pointermove', onPointerMove);
+    document.removeEventListener('pointerup', onPointerUp);
+  }
+
+ 
+  timeline.addEventListener('pointerdown', onPointerDown, { passive: false });
 })();
+
