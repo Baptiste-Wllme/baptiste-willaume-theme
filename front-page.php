@@ -85,10 +85,15 @@
 
 
 <section id="contact" class="contact">
-    <div class="contact_content">
-        <h2 class="contact_title">Contactez-moi</h2>
-        
+    <div class="contact_container">
+        <div class="contact_content">
+            <h2 class="contact_title">Contactez-moi</h2>
+            <div class="contact_formulaire">
+                <?php echo do_shortcode('[contact-form-7 id="da67d9e" title="contactez moi"]'); ?>
+            </div>         
+        </div>
     </div>
+    
 </section>
 
 <?php

@@ -24,14 +24,15 @@ Template: blankslate
   font-style: normal;
 }
 
+
+
 html, body {
-  height: 100%;
-  overflow-y: hidden; 
+  overflow-y: scroll;
 }
 
 html {
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 body {
@@ -43,7 +44,6 @@ body {
 
 main {
   height: 100vh;
-  overflow-y: scroll;
   scroll-snap-type: y mandatory; 
   scroll-behavior: smooth;
 }
@@ -179,7 +179,6 @@ section {
 
   &_content {
     width: 100%;
-    padding-left: 10%;
     box-sizing: border-box;
   }
 
@@ -191,22 +190,14 @@ section {
     text-align: left;
     max-width: 90%;
     margin: 0;
+    padding-left: 15rem;
   }
-
-  &_timeline::-webkit-scrollbar {
-  height: 10px;
-  }
-
-  &_timeline::-webkit-scrollbar-thumb {
-  background-color: rgba(66,55,134);
-  border-radius: 5px;
-}
 
   &_timeline-wrapper {
-  height: 90vh;
-  overflow: hidden;
-  position: relative;
-}
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+  }
 
   &_timeline {
     position: relative;
@@ -222,6 +213,9 @@ section {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    scrollbar-width:auto;
+    scrollbar-color: rgba(66,55,134, 1) transparent;
+    padding-left: 15rem;
 
    
 
@@ -436,26 +430,45 @@ section {
 // Formuilaire de contact //
 
 .contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   
+  display: flex; 
   align-items: center;           
   background: #423786;
   color: #f5f5f5;
+  box-sizing: border-box;
+  justify-content: center;
 
+  &_container {
+    width: 50%;
+    position: relative;
+    justify-self: center;
+  }
 
+  &_formulaire {
+    width: 100%;
+    max-height: 80vh;
+  }
 
   &_content {
     max-width: 80%;
+    justify-self: center;
+    width: 100%;
   }
 
   h2 {
     margin-top: 0;
-    margin-bottom: 2rem; /* tu ajustes si besoin */
+    margin-bottom: 2rem; 
+    text-align: center;
   }
 
   form {
-    margin: 0; /* retire les marges verticales inutiles de CF7 */
+    margin: 0;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  p {
+    width: 100%;
   }
 
   &_title {
@@ -474,10 +487,12 @@ section {
       border-radius: 0.5rem;
       width: 100%;
       box-sizing: border-box;
+      margin-top: 10px;
+      resize: none;
+      min-width: 100%;
     }
 
     input[type="submit"] {
-      width: fit-content;
       padding: 0.8rem 2rem;
       background: #fff;
       color: #423786;

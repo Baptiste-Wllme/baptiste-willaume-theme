@@ -21,13 +21,12 @@ Template: blankslate
   font-style: normal;
 }
 html, body {
-  height: 100%;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 html {
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 body {
@@ -39,7 +38,6 @@ body {
 
 main {
   height: 100vh;
-  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
@@ -156,7 +154,6 @@ section {
 }
 .cv_content {
   width: 100%;
-  padding-left: 10%;
   box-sizing: border-box;
 }
 .cv_title {
@@ -167,13 +164,7 @@ section {
   text-align: left;
   max-width: 90%;
   margin: 0;
-}
-.cv_timeline::-webkit-scrollbar {
-  height: 10px;
-}
-.cv_timeline::-webkit-scrollbar-thumb {
-  background-color: rgb(66, 55, 134);
-  border-radius: 5px;
+  padding-left: 15rem;
 }
 .cv_timeline-wrapper {
   height: 90vh;
@@ -194,6 +185,9 @@ section {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  scrollbar-width: auto;
+  scrollbar-color: rgb(66, 55, 134) transparent;
+  padding-left: 15rem;
 }
 .cv_timeline.grabbing {
   cursor: grabbing;
@@ -385,21 +379,39 @@ section {
 
 .contact {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   background: #423786;
   color: #f5f5f5;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.contact_container {
+  width: 50%;
+  position: relative;
+  justify-self: center;
+}
+.contact_formulaire {
+  width: 100%;
+  max-height: 80vh;
 }
 .contact_content {
   max-width: 80%;
+  justify-self: center;
+  width: 100%;
 }
 .contact h2 {
   margin-top: 0;
-  margin-bottom: 2rem; /* tu ajustes si besoin */
+  margin-bottom: 2rem;
+  text-align: center;
 }
 .contact form {
-  margin: 0; /* retire les marges verticales inutiles de CF7 */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact p {
+  width: 100%;
 }
 .contact_title {
   font-size: 2rem;
@@ -416,9 +428,11 @@ section {
   border-radius: 0.5rem;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 10px;
+  resize: none;
+  min-width: 100%;
 }
 .contact .wpcf7-form input[type=submit] {
-  width: fit-content;
   padding: 0.8rem 2rem;
   background: #fff;
   color: #423786;
