@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: BlankSlate Child
 Template: blankslate
@@ -25,7 +26,6 @@ html, body {
 }
 
 html {
-  scroll-snap-type: y mandatory;
   overflow-y: hidden;
 }
 
@@ -33,7 +33,6 @@ body {
   background: rgb(255, 255, 255);
   font-family: "SpaceGrotesk", sans-serif;
   margin: 0;
-  scroll-snap-type: y mandatory;
 }
 
 main {
@@ -106,14 +105,30 @@ section {
 .description {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
   background-color: rgb(66, 55, 134);
   color: rgb(237, 237, 237);
+  padding: 10rem 0;
+  box-sizing: border-box;
 }
 .description_content {
   width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.description_content .word {
+  display: inline-block;
+  transform: translateY(0);
+  opacity: 0;
+}
+.description_content .split-text {
+  display: block; /* block pour éviter que la hauteur explose */
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  line-height: 1.3;
 }
 .description_bloc1 {
   font-family: "SpaceGrotesk-Light", sans-serif;
@@ -386,7 +401,7 @@ section {
   justify-content: center;
 }
 .contact_container {
-  width: 50%;
+  width: 30%;
   position: relative;
   justify-self: center;
 }
@@ -422,7 +437,8 @@ section {
   flex-direction: column;
   gap: 1rem;
 }
-.contact .wpcf7-form input, .contact .wpcf7-form textarea {
+.contact .wpcf7-form input:not([type=submit]),
+.contact .wpcf7-form textarea {
   padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
@@ -440,6 +456,9 @@ section {
   border-radius: 0.5rem;
   cursor: pointer;
   transition: transform 0.3s ease;
+  width: auto;
+  margin: 1rem auto 0;
+  display: block;
 }
 .contact .wpcf7-form input[type=submit]:hover {
   transform: scale(1.05);
