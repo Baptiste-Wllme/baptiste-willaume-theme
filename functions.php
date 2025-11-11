@@ -29,11 +29,11 @@ function theme_enqueue_scripts() {
         'timeline-js',
         get_stylesheet_directory_uri() . '/assets/js/timeline.js',
         array(),
-        null,
+        filemtime(get_stylesheet_directory() . '/assets/js/timeline.js'),
         true
     );
 
-    // GSAP
+ 
     wp_enqueue_script(
         'gsap',
         'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js',
@@ -42,7 +42,7 @@ function theme_enqueue_scripts() {
         true
     );
 
-    // ScrollTrigger
+
     wp_enqueue_script(
         'scrolltrigger',
         'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js',
@@ -51,12 +51,28 @@ function theme_enqueue_scripts() {
         true
     );
 
-    // Animations GSAP perso
+    wp_enqueue_script(
+        'scrollto',
+        'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js',
+        array('gsap'),
+        null,
+        true
+    );
+
+  
     wp_enqueue_script(
         'gsap-animations',
         get_stylesheet_directory_uri() . '/assets/js/gsap-animations.js',
         array('gsap', 'scrolltrigger'),
-        null,
+        filemtime(get_stylesheet_directory() . '/assets/js/gsap-animations.js'),
+        true
+    );
+
+    wp_enqueue_script(
+        'smooth-scroll',
+        get_stylesheet_directory_uri() . '/assets/js/smooth-scroll.js',
+        array('gsap', 'scrollto'),
+        filemtime(get_stylesheet_directory() . '/assets/js/smooth-scroll.js'),
         true
     );
 }

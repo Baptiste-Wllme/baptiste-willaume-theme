@@ -5,7 +5,7 @@
 <section class="hero">
     <div class="hero_space"></div>
     <h1 class="hero_title">Baptiste Willaume</h1>
-    <p class="hero_subtitle">Développeur wordpress</p>
+    <p class="hero_subtitle">Développeur   wordpress</p>
     <div class="hero_links">
         <a href="https://www.linkedin.com/in/baptiste-willaume-122493191/" target="_blank">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/linkedin.svg" alt="linkedin">
@@ -53,6 +53,7 @@
         
     </div>
 </section>
+
 <section id="timeline" class="cv">
     <div class="cv_content">
         <h2 class="cv_title">Mon parcours professionnel</h2>
