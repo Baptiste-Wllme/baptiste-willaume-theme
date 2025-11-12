@@ -35,7 +35,7 @@
 <section id="description" class="description">
     <div class="description_content">
         <div class="description_bloc1">
-            <h2 class="split-text">Je suis Baptiste, un développeur WordPress  </h2>
+            <h2 class="split-text">Je suis Baptiste, développeur WordPress  </h2>
         </div>
         <div class="description_bloc2">
             <p class="split-text">Passionné par la création de sites web modernes, rapides et sur mesure, j’aime transformer une idée en un site fluide, esthétique et facile à gérer. 
