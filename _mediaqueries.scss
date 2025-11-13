@@ -1,6 +1,4 @@
 @media (max-width: 1024px) {
-
-    
     .description {
 
         &_content {
@@ -15,10 +13,25 @@
             font-size: 1.5rem;
         }
     }
+
+    #timeline {
+      height: fit-content !important;
+    }
+
+    .cv {
+        &_title {
+            padding-left: 4rem !important;
+        }
+    }
+
+    .contact {
+        &_container {
+            width: 100% !important;
+        }
+    }
 }
 
-@media (max-width: 767px) {
-
+@media (max-width: 768px) {
     .hero {
         &_title {
             font-size: 2.6rem !important;
@@ -46,8 +59,116 @@
         &_under {
             gap: 2rem !important;
         }
-           
+    }
+
+    .cv_timeline-wrapper {
+      height: auto !important;
+      overflow: visible !important;
+      padding: 2rem 0;
+    }
+
+    .cv_timeline {
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start;
+      overflow-x: visible !important;
+      overflow-y: visible;
+      padding-left: 0 !important;
+      gap: 4rem !important;
+      cursor: default;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0 !important;
+        left: 20% !important;
+        transform: translateX(-50%);
+        width: 4px !important;
+        height: 100% !important;
+        background-color: rgba(66, 55, 134, 1);
+      }
+    }
+
+    .cv_item-wrapper {
+        width: 100%;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        transition: all 0.4s ease;
+
+    .cv_date {
+      position: relative !important;
+      z-index: 2;
+      left: -29%;
+
+    }
+
+    .cv_item {
+      transform: none !important;
+      width: 50%;
+      max-width: 500px;
+      align-self: flex-end !important;
+      min-width: 0px !important;
+    }
+
+    .cv_more {
+        position: relative !important;
+        left: -1% !important;
+        width: 48% !important;
+        align-self: flex-end !important;
+        top: -4rem !important;
+        transform: none !important;
+        max-height: 0;
+        overflow: hidden;
+        border-radius: 1rem !important;
+        transition: max-height 0.7s ease, top 0.5s ease !important;
+
+        .cv_more-inner {
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
         
+    }
+
+    &.open .cv_more {
+        max-height: 1000px;
+        top: -1rem !important; 
+        left: -1% !important;
+        width: 48% !important;
+        align-self: flex-end !important;
+        border-radius: 1rem !important;
+        padding: 2rem !important;
+    }
+
+    &.open .cv_more .cv_more-inner {
+        opacity: 1;
+    }
+
+    &.top .cv_date,
+    &.bottom .cv_date {
+      transform: translate(0%, calc(-50% - 0px)) !important;
+    }
+
+    .cv_toggle {
+    &::after {
+          content: "▼" !important;
+          font-size: inherit;
+        }
+      
+       
+        font-size: 0 !important; 
+      
+        
+        &::after {
+          font-size: 0.7rem !important;
+          display: inline-block;
+        }
+    }
+  }
+
+    .contact {
+        height: 115vh !important;
     }
 }
 
@@ -61,4 +182,6 @@
             font-size: 1.4rem !important;
         }
     }
+
+    
 }

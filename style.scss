@@ -196,6 +196,10 @@ section {
   }
 }
 
+#timeline {
+  height: 110vh;
+}
+
 .cv {
   box-sizing: border-box;
   color: rgba(66, 55, 134, 1);
@@ -219,7 +223,7 @@ section {
   }
 
   &_timeline-wrapper {
-    height: 90vh;
+    height: 100vh;
     overflow: hidden;
     position: relative;
   }
@@ -371,7 +375,7 @@ section {
     transition: all 0.4s ease;
 
     &.animating {
-      overflow: hidden; // ✅ empêche de voir le contenu pendant le mouvement
+      overflow: hidden; 
     }
 
     &.top .cv_date {
@@ -403,6 +407,11 @@ section {
       transition: transform 0.4s ease, opacity 0.2s ease;
       z-index: 1;
 
+      .cv_more-inner {
+        transition: opacity 0.4s ease;
+        opacity: 0;
+    }
+
       p {
         z-index: 0;
         position: relative;
@@ -424,6 +433,10 @@ section {
     &.open .cv_more {
     opacity: 1;
     transform: translate(-50%, 0) scaleY(1);
+
+    .cv_more-inner {
+        opacity: 1;
+    }
   }
 
 
@@ -464,7 +477,7 @@ section {
   height: 106vh;
 
   &_container {
-    width: 40%;
+    width: 70%;
     position: relative;
     justify-self: center;
   }

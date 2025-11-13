@@ -34,14 +34,16 @@ $details_projet = get_field('details_projet');
 
     <?php if ($details_projet) : ?>
         <div class="cv_more">
-            <p><?php echo wp_kses_post($details_projet); ?></p>
-            <?php if ($lien_projet) : ?>
-                <div class="cv_discover">
-                    <a href="<?php echo esc_url($lien_projet); ?>" target="_blank" rel="noopener noreferrer">
-                        <p>Découvrir le projet</p>
-                    </a>
-                </div>
-            <?php endif; ?>
+            <div class="cv_more-inner">
+                <p><?php echo wp_kses_post($details_projet); ?></p>
+                <?php if ($lien_projet) : ?>
+                    <div class="cv_discover">
+                        <a href="<?php echo esc_url($lien_projet); ?>" target="_blank" rel="noopener noreferrer">
+                            <p>Découvrir le projet</p>
+                        </a>
+                    </div>
+                <?php endif; ?>
+            </div>    
         </div>
     <?php endif; ?>
 </div>
