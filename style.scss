@@ -52,7 +52,7 @@ main {
 }
 
 section {
-  height: 100vh; 
+  min-height: 100vh; 
   scroll-snap-align: start; 
 }
 
@@ -197,7 +197,7 @@ section {
 }
 
 #timeline {
-  height: 110vh;
+  min-height: 110vh;
 }
 
 .cv {
@@ -337,6 +337,7 @@ section {
     position: relative;
     z-index: 2;
     min-width: 300px;
+    max-height: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     h3,p {
@@ -399,17 +400,35 @@ section {
       left: 50%;
       width: 82.5%;
       background: white;
-      padding: 2rem;
+      padding: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       cursor: default;
       transform: translate(-50%, 0) scaleY(0);
       transform-origin: top;
-      transition: transform 0.4s ease, opacity 0.2s ease;
+      opacity: 1;
+      transition: transform 0.3s ease, opacity 0.5s ease;
       z-index: 1;
+      transition-delay: 0.3s;
 
       .cv_more-inner {
-        transition: opacity 0.4s ease;
+        transition: opacity 0.2s ease, transform 0.4s ease;
         opacity: 0;
+        transition-delay: 0s;
+        transform: translateY(20px);
+
+        .cv_more-animated {
+          display: inline-block;
+          
+          span {
+              opacity: 0;
+              transform: translateY(15px);
+              display: inline-block;
+              transition:
+                  opacity 0.35s ease,
+                  transform 0.35s ease;
+              transition-delay: calc(var(--i) * 0.01s); 
+          }
+        }
     }
 
       p {
@@ -433,9 +452,34 @@ section {
     &.open .cv_more {
     opacity: 1;
     transform: translate(-50%, 0) scaleY(1);
+    transition-delay: 0.1s;
 
     .cv_more-inner {
         opacity: 1;
+        transition-delay: 0.35s;
+        transform: translateY(0);
+
+        .cv_more-animated span {
+          opacity: 1;
+          transform: translateY(0);
+        }
+    }
+  }
+
+  .cv_item-wrapper:not(.open) .cv_more {
+
+    transition-delay: 0s;
+    
+    .cv_more-inner {
+        opacity: 0;
+        transform: translateY(20px);
+        transition-delay: 0s; 
+
+        .cv_more-animated span {
+          opacity: 0;
+          transform: translateY(15px);
+          transition-delay: 0s !important;
+        }
     }
   }
 
@@ -474,17 +518,18 @@ section {
   color: #f5f5f5;
   box-sizing: border-box;
   justify-content: center;
-  height: 106vh;
+  min-height: 100vh;
 
   &_container {
     width: 70%;
     position: relative;
     justify-self: center;
+    height: 100%;
+    padding: 4rem 0;
   }
 
   &_formulaire {
     width: 100%;
-    max-height: 80vh;
   }
 
   &_content {

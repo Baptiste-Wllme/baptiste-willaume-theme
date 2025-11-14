@@ -10,16 +10,16 @@
         <a href="https://www.linkedin.com/in/baptiste-willaume-122493191/" target="_blank">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/linkedin.svg" alt="linkedin">
         </a>
-        <a href="">
+        <a href="mailto:baptiste.willaume.pro@gmail.com" target="_blank">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/mail.svg" alt="mail">
         </a>
-        <a href="">
+        <a href="tel:0778189308">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/phone.svg" alt="phone">  
         </a>
         <a href="https://github.com/Baptiste-Wllme" target="_blank">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/github.svg" alt="github">
         </a>
-        <a href="">
+        <a href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/CV_Baptiste_Willaume.pdf" download>
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/download.svg" alt="download">
         </a> 
     </div>

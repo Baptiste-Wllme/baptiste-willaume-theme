@@ -35,7 +35,15 @@ $details_projet = get_field('details_projet');
     <?php if ($details_projet) : ?>
         <div class="cv_more">
             <div class="cv_more-inner">
-                <p><?php echo wp_kses_post($details_projet); ?></p>
+                <?php
+                $texte = wp_kses_post($details_projet);
+                $mots = explode(' ', $texte);
+                ?>
+                <p class="cv_more-animated">
+                    <?php foreach ($mots as $index => $mot) : ?>
+                        <span style="--i:<?php echo $index; ?>"><?php echo $mot; ?></span>
+                    <?php endforeach; ?>
+                </p>
                 <?php if ($lien_projet) : ?>
                     <div class="cv_discover">
                         <a href="<?php echo esc_url($lien_projet); ?>" target="_blank" rel="noopener noreferrer">

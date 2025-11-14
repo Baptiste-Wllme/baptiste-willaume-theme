@@ -114,7 +114,7 @@
 
     .cv_more {
         position: relative !important;
-        left: -1% !important;
+        left: -3.5% !important;
         width: 48% !important;
         align-self: flex-end !important;
         top: -4rem !important;
@@ -134,11 +134,11 @@
     &.open .cv_more {
         max-height: 1000px;
         top: -1rem !important; 
-        left: -1% !important;
+        left: -3.5% !important;
         width: 48% !important;
         align-self: flex-end !important;
         border-radius: 1rem !important;
-        padding: 2rem !important;
+        padding: 1rem !important;
     }
 
     &.open .cv_more .cv_more-inner {
@@ -167,9 +167,6 @@
     }
   }
 
-    .contact {
-        height: 115vh !important;
-    }
 }
 
 @media (max-width: 425px) {
