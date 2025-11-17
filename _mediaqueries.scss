@@ -114,11 +114,11 @@
 
     .cv_more {
         position: relative !important;
-        left: -3.5% !important;
+        left: 23% !important;
+        transform: translateX(-49.5%) !important;
         width: 48% !important;
         align-self: flex-end !important;
         top: -4rem !important;
-        transform: none !important;
         max-height: 0;
         overflow: hidden;
         border-radius: 1rem !important;
@@ -134,7 +134,7 @@
     &.open .cv_more {
         max-height: 1000px;
         top: -1rem !important; 
-        left: -3.5% !important;
+        left: -3%;
         width: 48% !important;
         align-self: flex-end !important;
         border-radius: 1rem !important;
@@ -178,7 +178,5 @@
         &_subtitle {
             font-size: 1.4rem !important;
         }
-    }
-
-    
+    }   
 }

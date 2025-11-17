@@ -94,34 +94,103 @@ document.addEventListener("DOMContentLoaded", () => {
 // animation section description //
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("SplitText loader — DOM ready");
+
+  
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+    console.warn("GSAP ou ScrollTrigger manquant !");
+    return;
+  }
+
+  const elements = Array.from(document.querySelectorAll(".split-text"));
+  console.log("Éléments split-text trouvés :", elements.length);
+
+  elements.forEach((el, idx) => {
+    console.log("Traitement élément", idx, el);
+
     
-    const elements = document.querySelectorAll(".split-text");
+    if (el.dataset.split === "done") {
+      console.log("-> déjà splitté, skip");
+      return;
+    }
+    el.dataset.split = "done";
 
-    elements.forEach(el => {
-        let words = el.innerText.split(" ");
-        el.innerHTML = words
-            .map(word => `<span class="word" style="display:inline-block; opacity:0;">${word}</span>`)
-            .join(" ");
+    
+    const words = el.innerText.trim().split(/\s+/);
+    el.innerHTML = words
+      .map((w, i) => `<span class="word" style="display:inline-block;opacity:0;transform:translateY(20px);" data-i="${i}">${w}</span>`)
+      .join(" ");
 
-        gsap.fromTo(
-            el.querySelectorAll(".word"),
-            { y: 20, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                stagger: 0.07,
-                duration: 1.5,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 80%",
-                    toggleActions: "play none none none",
-                }
-            }
-        );
+    const wordSpans = el.querySelectorAll(".word");
+    console.log("Spans créés :", wordSpans.length);
+
+   
+    const tl = gsap.timeline({ paused: true });
+    tl.to(wordSpans, {
+      y: 0,
+      opacity: 1,
+      stagger: 0.07,
+      duration: 1.2,
+      ease: "power3.out"
     });
-    setTimeout(() => ScrollTrigger.refresh(), 100);
+
+   
+    const st = ScrollTrigger.create({
+      trigger: el,
+      start: "top 95%",
+      onEnter: () => {
+        console.log("onEnter -> play", idx);
+        tl.play(0);
+      },
+      onEnterBack: () => {
+        console.log("onEnterBack -> play", idx);
+        tl.play(0);
+      },
+      onLeave: () => {
+        console.log("onLeave -> reset", idx);
+        tl.pause(0); 
+      
+        gsap.set(wordSpans, { opacity: 0, y: 20 });
+      },
+      onLeaveBack: () => {
+        console.log("onLeaveBack -> reset", idx);
+        tl.pause(0);
+        gsap.set(wordSpans, { opacity: 0, y: 20 });
+      },
+      
+      onRefresh(self) {
+        if (self.isActive) {
+          console.log("onRefresh actif -> play", idx);
+          tl.play(0);
+        }
+      },
+      markers: false
+    });
+
+    
+    requestAnimationFrame(() => {
+      if (st.isActive) {
+        console.log("requestAnimationFrame: trigger déjà actif -> play", idx);
+        tl.play(0);
+      } else {
+      }
+    });
+  });
+
+ 
+  window.addEventListener("load", () => {
+    console.log("window.load -> ScrollTrigger.refresh()");
+    ScrollTrigger.refresh();
+  });
+
+
+  setTimeout(() => {
+    console.log("timeout refresh");
+    ScrollTrigger.refresh();
+  }, 150);
 });
+
+
 
 
 

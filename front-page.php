@@ -25,7 +25,7 @@
     </div>
     
     <div class="hero_scroll">
-        <p class="text">scroll</p>
+        <p class="text">scroll me</p>
         <a href="#description">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/flèche_01.svg" alt="arrow scroll">
         </a>
