@@ -24,6 +24,9 @@ Template: blankslate
   }
 }
 @media (max-width: 768px) {
+  html, main {
+    scroll-behavior: auto !important;
+  }
   .hero_title {
     font-size: 2.6rem !important;
   }
@@ -137,6 +140,10 @@ Template: blankslate
   .hero_subtitle {
     font-size: 1.4rem !important;
   }
+  .description .word {
+    display: inline-block;
+    opacity: 1 !important;
+  }
 }
 @font-face {
   font-family: "SpaceGrotesk";
@@ -162,8 +169,6 @@ html, body {
 
 html {
   overflow-y: auto !important;
-  scroll-behavior: auto !important;
-  scroll-snap-type: none !important;
 }
 
 body {
@@ -175,13 +180,10 @@ body {
 
 main {
   height: 100vh;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
 }
 
 section {
   min-height: 100vh;
-  scroll-snap-align: start;
 }
 
 .hero {
@@ -258,8 +260,7 @@ section {
 }
 .description_content .word {
   display: inline-block;
-  transform: translateY(0);
-  opacity: 0;
+  opacity: 1;
 }
 .description_content .split-text {
   display: block; /* block pour éviter que la hauteur explose */

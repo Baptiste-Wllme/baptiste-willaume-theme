@@ -67,6 +67,7 @@ function theme_enqueue_scripts() {
         filemtime(get_stylesheet_directory() . '/assets/js/gsap-animations.js'),
         true
     );
+    
 
     wp_enqueue_script(
         'smooth-scroll',

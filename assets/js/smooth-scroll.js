@@ -9,11 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = "#description";
         
         gsap.to(document.body, {
-  duration: 1.5,
-  scrollTo: target,
-  ease: "power2.inOut"
-});
-
+          duration: 1.5,
+          scrollTo: target,
+          ease: "power2.inOut"
+        });
     });
   }
 });
